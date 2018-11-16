@@ -16,5 +16,45 @@ namespace CardMover
         {
             InitializeComponent();
         }
+
+        public void ResetDeck(int deckNumber)
+        {
+            
+        }
+
+        public void RedrawDeck(int deckNumber)
+        {
+            
+        }
+
+        private void MoveToDeck2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MoveToDeck1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ResetDeck1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ResetDeck2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShuffleDeck1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShuffleDeck2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
