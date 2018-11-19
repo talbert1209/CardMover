@@ -64,5 +64,10 @@ namespace CardMover
 
             return cardNames;
         }
+
+        public void Sort()
+        {
+            _cards.Sort(new CardComparer_bySuit());
+        }
     }
 }

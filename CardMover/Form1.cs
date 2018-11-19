@@ -14,7 +14,8 @@ namespace CardMover
     {
         private Deck deck1;
         private Deck deck2;
-        Random random = new Random();
+        readonly Random random = new Random();
+
         public Form1()
         {
             InitializeComponent();
@@ -35,10 +36,12 @@ namespace CardMover
                     cards[card] = new Card((Suit)random.Next(4), (Value)random.Next(1,14));
                 }
                 deck1 = new Deck(cards);
+                deck1.Sort();
             }
             else
             {
                 deck2 = new Deck();
+                deck2.Sort();
             }
         }
 
@@ -67,32 +70,42 @@ namespace CardMover
 
         private void MoveToDeck2_Click(object sender, EventArgs e)
         {
-
+            deck2.Add(deck1.Deal(Deck1.SelectedIndex));
+            deck2.Sort();
+            RedrawDeck(1);
+            RedrawDeck(2);
         }
 
         private void MoveToDeck1_Click(object sender, EventArgs e)
         {
-
+            deck1.Add(deck2.Deal(Deck2.SelectedIndex));
+            deck1.Sort();
+            RedrawDeck(1);
+            RedrawDeck(2);
         }
 
         private void ResetDeck1_Click(object sender, EventArgs e)
         {
-
+            ResetDeck(1);
+            RedrawDeck(1);
         }
 
         private void ResetDeck2_Click(object sender, EventArgs e)
         {
-
+            ResetDeck(2);
+            RedrawDeck(2);
         }
 
         private void ShuffleDeck1_Click(object sender, EventArgs e)
         {
-
+            deck1.Shuffle();
+            RedrawDeck(1);
         }
 
         private void ShuffleDeck2_Click(object sender, EventArgs e)
         {
-
+            deck2.Shuffle();
+            RedrawDeck(2);
         }
     }
 }
