@@ -28,5 +28,41 @@ namespace CardMover
         {
             _cards = new List<Card>(initialCards);
         }
+
+        public void Add(Card card)
+        {
+            _cards.Add(card);
+        }
+
+        public Card Deal(int index)
+        {
+            Card cardToDeal = _cards[index];
+            _cards.RemoveAt(index);
+            return cardToDeal;
+        }
+
+        public void Shuffle()
+        {
+            var shuffledDeck = new List<Card>();
+            while (_cards.Count > 0)
+            {
+                var randomCardIndex = random.Next(_cards.Count);
+                shuffledDeck.Add(_cards[randomCardIndex]);
+                _cards.RemoveAt(randomCardIndex);
+            }
+
+            _cards = shuffledDeck;
+        }
+
+        public IEnumerable<string> GetCardNames()
+        {
+            var cardNames = new List<string>();
+            foreach (var card in _cards)
+            {
+                cardNames.Add(card.Name);
+            }
+
+            return cardNames;
+        }
     }
 }
