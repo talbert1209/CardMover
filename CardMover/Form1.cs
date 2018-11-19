@@ -70,18 +70,47 @@ namespace CardMover
 
         private void MoveToDeck2_Click(object sender, EventArgs e)
         {
-            deck2.Add(deck1.Deal(Deck1.SelectedIndex));
-            deck2.Sort();
-            RedrawDeck(1);
-            RedrawDeck(2);
+            if (deck1.Count > 0)
+            {
+                if (Deck1.SelectedIndex >= 0)
+                {
+                    deck2.Add(deck1.Deal(Deck1.SelectedIndex));
+                    deck2.Sort();
+                    RedrawDeck(1);
+                    RedrawDeck(2);
+                }
+                else
+                {
+                    MessageBox.Show(@"Please select a card to move.");
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"There are no cards in the deck!");
+            }
+            
         }
 
         private void MoveToDeck1_Click(object sender, EventArgs e)
         {
-            deck1.Add(deck2.Deal(Deck2.SelectedIndex));
-            deck1.Sort();
-            RedrawDeck(1);
-            RedrawDeck(2);
+            if (deck2.Count > 0)
+            {
+                if (Deck1.SelectedIndex >= 0)
+                {
+                    deck1.Add(deck2.Deal(Deck2.SelectedIndex));
+                    deck1.Sort();
+                    RedrawDeck(1);
+                    RedrawDeck(2);
+                }
+                else
+                {
+                    MessageBox.Show(@"Please select a card to move.");
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"There are no cards in the deck!");
+            }
         }
 
         private void ResetDeck1_Click(object sender, EventArgs e)
