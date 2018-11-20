@@ -95,7 +95,7 @@ namespace CardMover
         {
             if (deck2.Count > 0)
             {
-                if (Deck1.SelectedIndex >= 0)
+                if (Deck2.SelectedIndex >= 0)
                 {
                     deck1.Add(deck2.Deal(Deck2.SelectedIndex));
                     deck1.Sort();
